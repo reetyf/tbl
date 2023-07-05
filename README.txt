@@ -27,7 +27,7 @@ ROUTES
 
 
 DOCKER USAGE: 
-Link on Docker Hub (https://hub.docker.com/repositories/reetyf)
+Link on Docker Hub (https://hub.docker.com/repository/docker/reetyf/tampabay/general)
 
 
 docker  pull reetyf/tampabay:tbl
