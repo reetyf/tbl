@@ -32,3 +32,10 @@ def top_team_stats(x:int,stat:str):
     df = player_data.top_team_stats(x,stat).to_json(orient = 'records')
     return df
 
+@app.get("/roster/{team}")
+def team_roster(team:str):
+    return player_data.team_roster(team).to_json(orient = 'records')
+
+@app.get("/multi_team_player")
+def most_travelled_player():
+    return player_data.most_travelled().to_json(orient = 'records')

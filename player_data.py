@@ -3,6 +3,10 @@ import numpy as np
 
 
 def read_data():
+    '''
+    reads and slightly preprocesses to serve as helper function
+    :return: the full dataset
+    '''
     # read
     df = pd.read_csv('data.csv')
 
@@ -59,3 +63,29 @@ def top_team_stats(x, stat):
 
     # query of top  stat obtainer, with all relevant col labels
     return return_df.sort_values(by=stat, ascending=False).iloc[:x]
+
+def team_roster(team):
+    '''
+    Current roster of the team including traded and acquired players
+    :param team: team name
+    :return: name and stats of roster players
+    '''
+    df = read_data()
+    roster = df.loc[df['Team'].str.contains(team)]
+    return roster
+
+def most_travelled():
+    '''
+    :return: the player(s) who appears on the most teams in 2022-2023
+    '''
+
+    # read
+    df = read_data()
+
+    # copy team Series to split on / and find lengths
+    to_split = df['Team']
+    to_split = to_split.str.split('/')
+    teams_played_for = to_split.str.len()
+
+    # return and search original df in the indeces of where the values for the number of teams played for equals the max
+    return df.loc[teams_played_for.loc[teams_played_for.values == teams_played_for.max()].index]
