@@ -35,4 +35,4 @@ docker run -d   -p 80:80 reetyf/tampabay:tbl
 
 
 
-(I'm 99% sure that this method of pulling from docker should work, but just in case, I've attached all files to this email!)
+(I'm 99% sure that this method should work, but just in case, I've attached all files to this email as well as a .zip submission for use in the main.py method)
